@@ -19,19 +19,41 @@ use App\Models\Listing;
 Route::get('/', function () {
     // Send data to listings page
     return view('listings', [
-        'heading' => 'Latest Listings',
+        //'heading' => 'Latest Listings',
         'listings' => Listing::all() // :: to get function
     ]
     );
+
+    // Using controller 
+    
 });
 
 // Single Listing
 
-Route::get('/listing/{id}', function($id){
+// Route::get('/listing/{id}', function($id){
+//     $listing = Listing::find($id);
+
+//     if($listing){
+//         return view('listing', [
+//             'heading' => 'Single Listing',
+//             'listing' => $listing
+//         ]);
+//     } else {
+//         abort('404');
+//     }
+
+// });
+
+// Route Model Binding // it will auto throw exception
+Route::get('/listing/{listing}', function(Listing $listing){
+
     return view('listing', [
-        'heading' => 'Single Listing',
-        'listing' => Listing::find($id)
+       // 'heading' => 'Single Listing',
+        'listing' => $listing
     ]);
+
+    // Using controller 
+
 });
 
 
