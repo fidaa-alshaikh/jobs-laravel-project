@@ -48,7 +48,8 @@
 <main>
   {{-- VIEW OUTPUT --}}
   {{-- @yield used to define a section in a layout and is constantly used to get content from a child page unto a master page --}}
-  @yield('content')
+  {{-- @yield('content') --}}
+  {{$slot}}
 </main>
 
 <footer

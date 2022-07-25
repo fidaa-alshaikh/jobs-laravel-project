@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,19 +15,20 @@ use App\Models\Listing;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Common Resource Routes:
+// index - Show all listings
+// show - Show single listing
+// create - Show form to create new listing
+// store - Store new listing
+// edit - Show form to edit listing
+// update - Update listing
+// destroy - Delete listing  
+
+
 // If we create modal we can use find and filtering
 // All Listings
-Route::get('/', function () {
-    // Send data to listings page
-    return view('listings', [
-        //'heading' => 'Latest Listings',
-        'listings' => Listing::all() // :: to get function
-    ]
-    );
-
-    // Using controller 
-    
-});
+Route::get('/', [ListingController::class, 'index']);
 
 // Single Listing
 
@@ -45,16 +47,7 @@ Route::get('/', function () {
 // });
 
 // Route Model Binding // it will auto throw exception
-Route::get('/listing/{listing}', function(Listing $listing){
-
-    return view('listing', [
-       // 'heading' => 'Single Listing',
-        'listing' => $listing
-    ]);
-
-    // Using controller 
-
-});
+Route::get('/listing/{listing}', [ListingController::class, 'show']);
 
 
 
@@ -85,3 +78,6 @@ Route::get('/listing/{listing}', function(Listing $listing){
 //     return request()->name . ' ' . request()->city;
 
 // });
+
+
+

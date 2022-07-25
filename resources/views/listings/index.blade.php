@@ -14,9 +14,7 @@ $num = 1;
 @endphp
 {{$num}} --}}
 
-@extends('layout')
-
-@section('content')
+<x-layout >
 @include('partials._hero')
 @include('partials._search')
 <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4"
@@ -42,4 +40,4 @@ $num = 1;
 
 </div>
 
-@endsection
+</x-layout>
