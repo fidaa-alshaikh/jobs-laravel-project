@@ -30,6 +30,26 @@ use App\Models\Listing;
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
+
+
+// '/listings/create' END POINT
+//Show Create Form // should be at top
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// Store Listing data
+Route::post('/listings', [ListingController::class, 'store']);
+
+// Show Edit Form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+//  Update listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
+//  Delete listing
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
+
+
 // Single Listing
 
 // Route::get('/listing/{id}', function($id){
@@ -45,13 +65,6 @@ Route::get('/', [ListingController::class, 'index']);
 //     }
 
 // });
-
-//Show Create Form // should be at top
-Route::get('/listings/create', [ListingController::class, 'create']);
-
-// Store Listing data
-Route::post('/listings', [ListingController::class, 'store']);
-
 // Route Model Binding // it will auto throw exception
 Route::get('/listing/{listing}', [ListingController::class, 'show']);
 

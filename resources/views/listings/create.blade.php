@@ -143,7 +143,7 @@ enctype="multipart/form-data">
             rows="10"
             placeholder="Include tasks, requirements, salary, etc"
         >
-        {{old('company')}}
+        {{old('description')}}
     </textarea>
 
         @error('description')
