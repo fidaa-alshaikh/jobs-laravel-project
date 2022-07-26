@@ -41,6 +41,7 @@ class ListingController extends Controller
     //Store listing data
     // dependency injection Request $request
     public function store(Request $request){
+
         //$request->all() // display all info from form
         $formFields = $request->validate([
             'title' => 'required',
@@ -52,6 +53,10 @@ class ListingController extends Controller
             'description' => 'required',
         ]);
 
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public'); // store('filename', 'location');
+
+        }
         //dd($formFields); // Associative array
         // Flash message stored in memory for one page load 
         //Session::flash('message', 'Listing created successfully');
