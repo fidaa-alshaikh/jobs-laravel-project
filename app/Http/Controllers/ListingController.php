@@ -18,7 +18,8 @@ class ListingController extends Controller
             //'heading' => 'Latest Listings',
             //'listings' => Listing::all() // :: to get function
             //'listings' => Listing::latest()->get() // same as all but get the latest first
-            'listings' => Listing::latest()->filter($tag)->get()
+            //simplePaginate // only next and pervious 
+            'listings' => Listing::latest()->filter($tag)->paginate(4)
         ]
         );
     }
