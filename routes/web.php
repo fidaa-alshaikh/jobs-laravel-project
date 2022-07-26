@@ -46,6 +46,12 @@ Route::get('/', [ListingController::class, 'index']);
 
 // });
 
+//Show Create Form // should be at top
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// Store Listing data
+Route::post('/listings', [ListingController::class, 'store']);
+
 // Route Model Binding // it will auto throw exception
 Route::get('/listing/{listing}', [ListingController::class, 'show']);
 
